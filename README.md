@@ -1,30 +1,72 @@
-# SCU (四川大学计算机专业个人项目集合)
+# SCU
 
-## 项目介绍
-四川大学（SCU）计算机科学与技术专业大三学生的个人项目集合，包含在校期间完成的Java后端、前端等实践项目，用于简历展示和技术沉淀。
+四川大学计算机专业个人项目集合仓库，用于沉淀课程实践、全栈开发练习和可展示的工程化作品。
 
-## 子项目列表
-| 子项目名称                  | 技术栈                                  | 核心亮点                                  |
-|-----------------------------|-----------------------------------------|-------------------------------------------|
-| [学生管理系统](./student-management-system) | SpringBoot 2.7.x + MyBatis-Plus 3.5.7 + PostgreSQL | 企业级学生信息管理：CRUD+参数校验+全局异常+分页查询+RESTful接口 |
+## 仓库概览
 
-## 技术栈总览
-| 技术         | 版本       | 作用                     |
-|--------------|------------|--------------------------|
-| SpringBoot   | 2.7.18     | 核心框架（自动配置/内嵌容器） |
-| MyBatis-Plus | 3.5.7      | 数据访问层（CRUD封装/分页） |
-| PostgreSQL   | 14         | 数据库（兼容MySQL）|
-| JSR303       | -          | 参数校验（@NotBlank/@Min） |
-| SpringMVC    | -          | 请求处理/参数绑定/异常处理 |
-| Git/GitHub   | -          | 版本控制/代码托管（简历展示） |
+当前仓库包含一个已有后端项目，以及一个新增的 Vue 3 前端项目：
 
-## 项目亮点
-1. **工程化规范**：每个子项目遵循三层架构、参数校验、全局异常处理等企业级规范；
-2. **可扩展性**：SCU大仓库结构支持无限添加子项目，便于后续沉淀更多技术实践；
-3. **简历展示**：GitHub仓库公开，包含完整代码、详细README，面试官能直接查看；
-4. **排错能力**：解决SpringBoot+MyBatis-Plus版本兼容、动态代理、Git分支/推送等底层问题。
+| 子项目 | 说明 | 技术栈 |
+| --- | --- | --- |
+| [student-management-system](./student-management-system) | 学生管理后端服务，提供 CRUD、分页查询和异常处理能力 | Spring Boot、MyBatis-Plus、PostgreSQL |
+| [student-management-web](./student-management-web) | 新增的学生管理前端控制台，对接现有后端完成查询与维护操作 | Vue 3、Vite、Vue Router、Pinia、Axios、Element Plus |
 
-## 后续计划
-- 新增更多子项目（比如Java后端微服务项目、前端项目）；
-- 完善每个子项目的README，包含接口文档、运行说明；
-- 优化代码，添加更多企业级特性（缓存、权限控制、日志等）。
+## 本次前端新增内容
+
+`student-management-web` 是本仓库本次新增的前端工程，主要补齐了学生管理系统的可视化界面与交互流程。
+
+已实现能力：
+
+- 学生分页列表展示
+- 姓名模糊查询
+- 年龄区间筛选
+- 新增学生
+- 编辑学生
+- 删除学生
+- 学生详情抽屉
+- 请求失败与参数错误提示
+- Vite 代理转发 `/api` 请求到后端服务
+
+## 前端技术栈
+
+| 技术 | 作用 |
+| --- | --- |
+| Vue 3 | 组件化 UI 开发 |
+| Vite | 本地开发与生产构建 |
+| Vue Router | 路由管理，默认入口为 `/students` |
+| Pinia | 学生列表、筛选条件、分页状态统一管理 |
+| Axios | 封装 HTTP 请求与响应拦截 |
+| Element Plus | 表格、表单、弹窗、抽屉等基础组件 |
+
+## 运行方式
+
+1. 启动后端项目 `student-management-system`，确保服务运行在 `http://localhost:8888`
+2. 进入前端目录并安装依赖
+3. 启动开发服务器
+
+```bash
+cd student-management-web
+npm install
+npm run dev
+```
+
+启动后可访问：
+
+- 前端页面：`http://localhost:5173/students`
+- 前端代理接口前缀：`/api`
+
+## 测试与验证
+
+截至 2026-03-30，前端新增内容已完成以下验证：
+
+- `student-management-web` 执行 `npm run build` 通过
+- 与现有后端完成联调验证
+- 已实际验证列表查询、新增、详情、编辑、删除整条操作链路
+
+
+
+## 文档入口
+
+- 前端详细说明见 [student-management-web/README.md](./student-management-web/README.md)
+
+
