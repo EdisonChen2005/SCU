@@ -137,12 +137,3 @@ npm run dev
 
 - 当前未集成 `Vitest`、`Playwright` 或 `Cypress`
 - 本次前端新增内容的验证方式以构建通过和实际接口联调为主
-
-## PR 建议描述
-
-如果需要为这次前端新增内容发起 PR，建议突出以下信息：
-
-- 新增独立的 Vue 3 前端工程 `student-management-web`
-- 已与现有学生管理后端完成联调
-- 已覆盖学生管理的核心 CRUD 页面流程
-- 已补充前端项目 README，方便 reviewer 快速了解结构与验证方式
